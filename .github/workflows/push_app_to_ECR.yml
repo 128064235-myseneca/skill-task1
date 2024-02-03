@@ -32,7 +32,7 @@ jobs:
         ECR_REPOSITORY: assignment1
         IMAGE_TAG: v0.1
       run: |
-        cd applciation/
+        cd application/
         ls -ltra
         # Docker build
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .

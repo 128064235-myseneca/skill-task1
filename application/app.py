@@ -50,7 +50,7 @@ def home():
     return render_template('addemp.html', color=color_codes[COLOR])
 
 @app.route(path, methods=['GET', 'POST'])
-def home():
+def test():
     return render_template('addemp.html', color=color_codes[COLOR])
 
 @app.route("/about", methods=['GET','POST'])

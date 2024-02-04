@@ -16,8 +16,13 @@ resource "aws_lb_listener" "front_end" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.blue.arn
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "Fixed response content"
+      status_code  = "200"
+    }
   }
 }
 
@@ -33,7 +38,7 @@ resource "aws_lb_listener_rule" "blue_redirect" {
 
   condition {
     path_pattern {
-      values = ["blue"]
+      values = ["/blue"]
     }
   }
 }
@@ -49,7 +54,7 @@ resource "aws_lb_listener_rule" "pink_redirect" {
 
   condition {
     path_pattern {
-      values = ["pink"]
+      values = ["/pink"]
     }
   }
 }
@@ -65,7 +70,7 @@ resource "aws_lb_listener_rule" "lime_redirect" {
 
   condition {
     path_pattern {
-      values = ["lime"]
+      values = ["/lime"]
     }
   }
 }

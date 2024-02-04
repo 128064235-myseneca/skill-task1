@@ -19,8 +19,8 @@ resource "aws_security_group" "my_alb" {
 resource "aws_security_group" "my_ec2-sg" {
   # ... other configuration ...
   ingress {
-    from_port        = 80
-    to_port          = 82
+    from_port        = 8081
+    to_port          = 8083
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]

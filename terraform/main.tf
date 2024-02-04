@@ -33,3 +33,12 @@ resource "aws_default_subnet" "default_az2" {
     Name = "Default subnet for us-east-1b"
   }
 }
+
+data "aws_iam_role" "labrole" {
+  name = "LabRole"
+}
+
+output "name" {
+  
+  value = data.aws_iam_role.labrole
+}

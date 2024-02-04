@@ -43,7 +43,7 @@ SUPPORTED_COLORS = ",".join(color_codes.keys())
 
 # Generate a random color
 COLOR = random.choice(["red", "green", "blue", "blue2", "darkblue", "pink", "lime"])
-path = "/" + color_codes[COLOR]
+path = "/" + COLOR_FROM_ENV
 
 @app.route("/", methods=['GET', 'POST'])
 def home():

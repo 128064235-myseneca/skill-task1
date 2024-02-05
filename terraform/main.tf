@@ -37,8 +37,3 @@ resource "aws_default_subnet" "default_az2" {
 data "aws_iam_role" "labrole" {
   name = "LabRole"
 }
-
-output "name" {
-  
-  value = data.aws_iam_role.labrole
-}

@@ -27,6 +27,7 @@ export DBHOST=127.0.0.1
 export DBPORT=3307
 ```
 ### Example when running DB runs as a docker container and app is running locally
+
 ```
 export DBHOST=172.17.0.2
 export DBPORT=3306

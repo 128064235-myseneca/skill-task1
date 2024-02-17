@@ -1,0 +1,110 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:905418101799:task-definition/web-td:3",
+    "containerDefinitions": [
+        {
+            "name": "web-container",
+            "image": "905418101799.dkr.ecr.us-east-1.amazonaws.com/web-app:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
+                {
+                    "name": "DATABASE",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:905418101799:secret:dev/webapp-tN3LIl:DATABASE::"
+                },
+                {
+                    "name": "DBHOST",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:905418101799:secret:dev/webapp-tN3LIl:DBHOST::"
+                },
+                {
+                    "name": "DBPORT",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:905418101799:secret:dev/webapp-tN3LIl:DBPORT::"
+                },
+                {
+                    "name": "DBPWD",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:905418101799:secret:dev/webapp-tN3LIl:DBPWD::"
+                },
+                {
+                    "name": "DBUSER",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:905418101799:secret:dev/webapp-tN3LIl:DBUSER::"
+                }
+            ],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/web-td",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            }
+        }
+    ],
+    "family": "web-td",
+    "taskRoleArn": "arn:aws:iam::905418101799:role/LabRole",
+    "executionRoleArn": "arn:aws:iam::905418101799:role/LabRole",
+    "networkMode": "awsvpc",
+    "revision": 3,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.secrets.asm.environment-variables"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "registeredAt": 1708060116.934,
+    "registeredBy": "arn:aws:sts::905418101799:assumed-role/voclabs/user2772626=sjoshi73@myseneca.ca"
+}
